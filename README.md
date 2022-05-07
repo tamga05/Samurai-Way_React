@@ -3,4 +3,7 @@
 Then Forward, BANZAI...))) <img src="https://media0.giphy.com/media/RJzm826vu7WbJvBtxX/giphy.gif?cid=6c09b952d03ivmyp4j8xee4gkn8hm41fv0iflxk024d16gj8&rid=giphy.gif&ct=s" height="25" width="25">
 <br>
 <br>
+👊 ⚔ 🛡 🏹 🙏
+<br>
+<br>
 <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/tamga05/TODO-List_React?style=flat-square" height="27">
