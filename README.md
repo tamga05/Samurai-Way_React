@@ -1,4 +1,4 @@
-<img src="https://thumbs.gfycat.com/SpottedHoarseInvisiblerail-size_restricted.gif" height="25" width="38"> If you successfully complete this entire project, then you will go all the way from start to finish (Samurai-way) and only at the finish line you can say - I became a real Samurai, **I became a really Cool Front-end Developer...!!!** <img src="https://miro.medium.com/max/952/1*JhfgzVXA0lvAIGIfRICRfA.gif" height="25" width="25">
+<img src="https://thumbs.gfycat.com/SpottedHoarseInvisiblerail-size_restricted.gif" height="25" width="38"> If you successfully complete this entire project, going all the way from start to finish (Samurai way), then only at the finish line you can say - I became a real Samurai, **I became a really Cool Front-end Developer...**!!! <img src="https://miro.medium.com/max/952/1*JhfgzVXA0lvAIGIfRICRfA.gif" height="25" width="25">
 <br>
 <br>
 **Then Forward, BANZAAAAAI...)))** 
