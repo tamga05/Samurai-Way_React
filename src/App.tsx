@@ -6,7 +6,7 @@ const App = () => {
         <div>
             <Header/>
             <div className="App">
-                Hello, samurai! Let's go!
+                <a href="#">Hello, samurai! Let's go!</a>
                 <Technologies/>
             </div>
         </div>
