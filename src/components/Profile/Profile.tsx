@@ -19,7 +19,7 @@ const Profile = () => {
                 <div>New post
                     <textarea name="" id=""></textarea>
                 </div>
-                <button type='submit'></button>
+                <button type='submit'>Add post</button>
             </div>
             <div className={s.item}>post 1</div>
             <div className={s.item}>post 2</div>
