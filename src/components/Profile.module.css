@@ -1,0 +1,20 @@
+.content {
+    grid-area: content;
+    background-color: #88b0f8;
+}
+
+.content__mainImg {
+    width: 100%;
+    /*height: 100px;*/
+    /*object-fit: cover;*/
+}
+
+.content__bloggerImg {
+    width: 70px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.item {
+    color: #ff0000;
+}
