@@ -1,6 +1,6 @@
 .header {
     grid-area: header;
-    background-color: #f5c8f5;
+    background: linear-gradient(135deg, #fceabb 0%, #fccd4d 49%, #fccd4d 49%, #fccd4d 49%, #fccd4d 49%, #fccd4d 49%, #fccd4d 49%, #fccd4d 50%, #fccd4d 50%, #fccd4d 50%, #f8b500 100%, #fbdf93 100%, #f8b500 101%);
     padding-left: 30px;
 }
 
@@ -8,7 +8,6 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    /*padding: 5px;*/
     margin-top: 5px;
 }
 

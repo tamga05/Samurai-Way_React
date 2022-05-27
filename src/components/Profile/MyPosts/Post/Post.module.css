@@ -7,3 +7,10 @@
     border-radius: 50%;
     margin: 10px;
 }
+
+.PostWrapper {
+    display: flex;
+    gap: 30px;
+    padding-left: 30px;
+    align-items: center;
+}

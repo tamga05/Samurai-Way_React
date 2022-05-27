@@ -1,5 +1,5 @@
 .nav {
     grid-area: nav;
-    background-color: #8ae054;
+    background: linear-gradient(315deg, rgb(191, 246, 233), rgb(67, 113, 223));
 }
 
