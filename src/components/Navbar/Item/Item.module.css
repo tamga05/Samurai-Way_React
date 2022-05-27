@@ -1,0 +1,15 @@
+.item {
+    /*color: white;*/
+    /*list-style-type: none;*/
+    margin-bottom: 15px;
+}
+
+.item.active {
+    color: gold;
+}
+
+.link {
+    /*color: #217f22;*/
+    color: black;
+    text-decoration: none;
+}
