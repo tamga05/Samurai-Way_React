@@ -7,4 +7,4 @@
 👊 ⚔ 🛡 🏹 🙏
 <br>
 <br>
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/tamga05/TODO-List_React?style=flat-square" height="27">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/tamga05/Samurai-Way_React?style=flat-square" height="27">
