@@ -7,8 +7,8 @@ const MyPosts = () => {
     return (
         <div>My posts
             <NewPost/>
-            <Post/>
-            <Post/>
+            <Post text={'The sea is cool...'} likeCount={15}/>
+            <Post text={'Chill out is great!!!'} likeCount={20}/>
         </div>
     );
 }

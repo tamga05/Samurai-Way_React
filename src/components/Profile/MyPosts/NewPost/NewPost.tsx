@@ -1,11 +1,13 @@
 import React from "react";
+import Button from "./Button/Button";
 
 
 const NewPost = () => {
     return (
         <div>New post
-            <textarea name="" id=""></textarea>
-            <button type='submit'>Add post</button>
+            <textarea id="" name="" placeholder={'Write your story here...'}></textarea>
+            <Button/>
+            <Button/>
         </div>
     );
 }
