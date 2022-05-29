@@ -8,7 +8,6 @@ If you successfully complete this entire project, going all the way from start t
 **Then Forward, BANZAAAAAI...)))** 
 <br>
 <br>
-
 👊 ⚔ 🛡 🏹 🙏</div>
 <br>
 <br>
