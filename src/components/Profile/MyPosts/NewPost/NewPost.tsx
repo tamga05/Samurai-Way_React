@@ -6,8 +6,8 @@ const NewPost = () => {
     return (
         <div>New post
             <textarea id="" name="" placeholder={'Write your story here...'}></textarea>
-            <Button/>
-            <Button/>
+            <Button value={'Add post'}/>
+            <Button value={'Delete post'}/>
         </div>
     );
 }

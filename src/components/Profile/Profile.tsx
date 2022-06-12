@@ -7,9 +7,9 @@ import HeroImage from "./HeroImage/HeroImage";
 
 const Profile = () => {
     return (
-        <section className={s.content}>
+        <section>
             <HeroImage/>
-            <Blogger/>
+            <Blogger avatar={'https://www.karandash.by/image/design/8455/60.jpg'}/>
             <MyPosts/>
         </section>
     );

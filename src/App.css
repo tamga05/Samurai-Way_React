@@ -60,6 +60,11 @@
     width: 100%;
 }
 
+.app-wrapper-content {
+    grid-area: content;
+    background: linear-gradient(135deg, rgb(136, 176, 248) 16%, rgb(173, 245, 247) 76%);
+}
+
 
 
 
