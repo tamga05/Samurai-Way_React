@@ -2,3 +2,28 @@
 /*    grid-area: content;*/
 /*    background: linear-gradient(135deg, rgb(136, 176, 248) 16%, rgb(173, 245, 247) 76%);*/
 /*}*/
+
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems {
+    padding: 20px;
+}
+
+.dialogsItems div.active {
+    color: gold;
+}
+
+.dialog {
+
+}
+
+.messages {
+    padding: 20px;
+}
+
+.message {
+
+}
