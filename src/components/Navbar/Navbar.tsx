@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import s from './Navbar.module.css';
-import List from "./List/List";
+import List from './List/List';
 
 
 const Navbar = () => {
@@ -9,6 +9,6 @@ const Navbar = () => {
             <List/>
         </nav>
     );
-}
+};
 
 export default Navbar;

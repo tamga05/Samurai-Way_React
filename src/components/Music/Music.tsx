@@ -3,8 +3,9 @@ import s from './Music.module.css';
 
 
 type MusicPropsType = {
-    props: any
+    props: string
 }
+
 
 const Music = (props: MusicPropsType) => {
     return (
