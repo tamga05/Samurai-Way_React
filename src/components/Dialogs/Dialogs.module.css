@@ -9,25 +9,13 @@
 }
 
 .dialogsItems {
-    padding: 20px;
+    padding: 30px;
 }
 
 .dialogsItems div.active {
     color: gold;
 }
 
-.dialog {
-
-}
-
-.dialog a {
-    text-decoration: none;
-}
-
 .messages {
-    padding: 20px;
-}
-
-.message {
-
+    padding: 30px;
 }

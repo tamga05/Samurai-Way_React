@@ -8,8 +8,8 @@ type PostPropsType = {
     avatar: string
 }
 
-
 const Post: React.FC<PostPropsType> = (props) => {
+
     return (
         <div className={s.PostWrapper}>
             <img className={s.avatar}

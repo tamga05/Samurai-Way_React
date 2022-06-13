@@ -1,11 +1,13 @@
 import React from "react";
 import NewPost from "./NewPost/NewPost";
-import Post from "./Post/Post";
+import Post from './Post/Post';
+import s from './MyPosts.module.css';
 
 
 const MyPosts = () => {
     return (
-        <div>My posts
+        <div className={s.myPosts}>
+            <h3>My posts</h3>
             <NewPost/>
             <Post text={'The sea is cool...'} likesCount={15}
                   avatar={'https://i.pinimg.com/originals/62/f2/03/62f203bea44b49f7b744e956b07f0a6e.jpg'}/>

@@ -1,0 +1,18 @@
+.dialog {
+    margin-bottom: 10px;
+}
+
+.dialog a {
+    color: black;
+    text-decoration: none;
+}
+
+.dialog a:active {
+    color: white;
+}
+
+.dialog a.activeLink {
+    color: gold;
+    font-weight: 500;
+}
+
