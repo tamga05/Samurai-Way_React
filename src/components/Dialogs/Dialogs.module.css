@@ -20,6 +20,10 @@
 
 }
 
+.dialog a {
+    text-decoration: none;
+}
+
 .messages {
     padding: 20px;
 }
