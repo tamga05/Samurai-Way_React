@@ -14,6 +14,6 @@
 .PostWrapper {
     display: flex;
     gap: 30px;
-    padding-left: 30px;
+    /*padding-left: 30px;*/
     align-items: center;
 }

@@ -45,11 +45,11 @@
 /*    text-decoration: none;*/
 /*}*/
 
-.app__mainWrapper {
+.appMainWrapper {
     padding: 5px;
 }
 
-.app__wrapper {
+.appWrapper {
     display: grid;
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
@@ -60,11 +60,19 @@
     width: 100%;
 }
 
-.app-wrapper-content {
+/*.appWrapperContent{*/
+/*    background-image: url('https://img.freepik.com/free-vector/watercolor-stains-abstract-background_23-2149107181.jpg?t=st=1655203081~exp=1655203681~hmac=0baf28ba6994d4b26f73cdbe7c1c42e7ca1c59b8bb0b7954f5d249425c4bb114&w=2000');*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    background-position: center;*/
+/*    background-size: cover;*/
+/*    background-repeat: no-repeat;*/
+/*}*/
+
+.appWrapperContent {
     grid-area: content;
     background: linear-gradient(135deg, rgb(136, 176, 248) 16%, rgb(173, 245, 247) 76%);
 }
-
 
 
 

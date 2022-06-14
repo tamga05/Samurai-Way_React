@@ -13,11 +13,11 @@ import Settings from './components/Settings/Settings';
 const App = () => {
     return (
         <BrowserRouter>
-            <div className="app__mainWrapper">
-                <div className="app__wrapper">
+            <div className="appMainWrapper">
+                <div className="appWrapper">
                     <Header/>
                     <Navbar/>
-                    <div className="app-wrapper-content">
+                    <div className="appWrapperContent">
                         <Route path="/dialogs" component={Dialogs}/>
                         <Route path="/profile" component={Profile}/>
                         <Route path="/news" component={News}/>
