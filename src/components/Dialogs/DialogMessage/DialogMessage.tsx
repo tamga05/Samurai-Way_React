@@ -6,6 +6,7 @@ type DialogMessagePropsType = {
     message: string
 }
 
+
 const DialogMessage = (props: DialogMessagePropsType) => {
     return (
         <div className={s.message}>

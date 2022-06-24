@@ -8,41 +8,52 @@ type DialogsPropsType = {
     props: any
 }
 
+
 const Dialogs = (props: DialogsPropsType) => {
+
+
+    let dialogs = [
+        {id: 1, name: 'Dimych'},
+        {id: 2, name: 'Andrey'},
+        {id: 3, name: 'Sveta'},
+        {id: 4, name: 'Sasha'},
+        {id: 5, name: 'Viktor'},
+        {id: 6, name: 'Valera'}
+    ];
+
+    let messages = [
+        {id: 1, message: 'Hi'},
+        {id: 2, message: 'How is your it-kamasutra'},
+        {id: 3, message: 'Yo'},
+        {id: 4, message: 'Yo'},
+        {id: 5, message: 'Yo'},
+        {id: 6, message: 'Yo'}
+    ];
+
+
+    let dialogsElements = dialogs.map((el) => {
+        return (
+            <DialogItem id={el.id} name={el.name}/>
+        );
+    });
+
+    // Можно поудалять лишнюю разметку, так как здесь будет возвращаться Только ОДИН элемент (компонента), и получиться такая Короткая запись:
+    // let dialogsElements = dialogs.map(el => <DialogItem id={el.id} name={el.name}/>);
+
+    let messagesElements = messages.map((el) => {
+        return (
+            <DialogMessage message={el.message}/>
+        );
+    });
+
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <DialogItem id={1} name={'Dimych'}/>
-                <DialogItem id={2} name={'Andrey'}/>
-                <DialogItem id={3} name={'Sveta'}/>
-                <DialogItem id={4} name={'Sasha'}/>
-                <DialogItem id={5} name={'Viktor'}/>
-                <DialogItem id={6} name={'Valera'}/>
-
-                {/*<div className={`${s.dialog} ${s.active}`}>*/}
-                {/*    <NavLink to={'/dialogs/1'}>Dimych</NavLink>*/}
-                {/*</div>*/}
-                {/*<div className={s.dialog}>*/}
-                {/*    <NavLink to={'/dialogs/2'}>Andrey</NavLink>*/}
-                {/*</div>*/}
-                {/*<div className={s.dialog}>*/}
-                {/*    <NavLink to={'/dialogs/3'}>Sveta</NavLink>*/}
-                {/*</div>*/}
-                {/*<div className={s.dialog}>*/}
-                {/*    <NavLink to={'/dialogs/4'}>Sasha</NavLink>*/}
-                {/*</div>*/}
-                {/*<div className={s.dialog}>*/}
-                {/*    <NavLink to={'/dialogs/5'}>Viktor</NavLink>*/}
-                {/*</div>*/}
-                {/*<div className={s.dialog}>*/}
-                {/*    <NavLink to={'/dialogs/6'}>Valera</NavLink>*/}
-                {/*</div>*/}
-
+                {dialogsElements}
             </div>
             <div className={s.messages}>
-                <DialogMessage message={'Hi'}/>
-                <DialogMessage message={'How is your it-kamasutra'}/>
-                <DialogMessage message={'Yo'}/>
+                {messagesElements}
             </div>
         </div>
     );
