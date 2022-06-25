@@ -2,14 +2,14 @@ import React from 'react';
 import s from './Post.module.css';
 
 
-type PostPropsType = {
+type PostType = {
     text: string
     likesCount: number
-    // avatar: string
 }
 
 
-const Post: React.FC<PostPropsType> = (props) => {
+const Post: React.FC<PostType> = (props) => {
+
 
     return (
         <div className={s.PostWrapper}>

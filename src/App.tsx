@@ -10,7 +10,31 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
 
-const App = () => {
+type AppType = {
+    posts: Array<PostType>
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
+}
+
+type PostType = {
+    id: number
+    post: string
+    likescount: number
+}
+
+type DialogType = {
+    id: number
+    name: string
+}
+
+type MessageType = {
+    id: number
+    message: string
+}
+
+
+const App = (props: AppType) => {
+
     return (
         <BrowserRouter>
             <div className="appMainWrapper">
@@ -18,11 +42,13 @@ const App = () => {
                     <Header/>
                     <Navbar/>
                     <div className="appWrapperContent">
-                        <Route path="/dialogs" component={Dialogs}/>
-                        <Route path="/profile" component={Profile}/>
-                        <Route path="/news" component={News}/>
-                        <Route path="/music" component={Music}/>
-                        <Route path="/settings" component={Settings}/>
+                        <Route path="/dialogs" render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
+                        <Route path="/profile" render={() => <Profile posts={props.posts}/>}/>
+
+                        {/*<Route path="/news" render={() => <News/>}/>*/}
+                        {/*<Route path="/music" render={() => <Music/>}/>*/}
+                        {/*<Route path="/settings" render={() => <Settings/>}/>*/}
+
                     </div>
                     {/*<Dialogs props={'any'}/>*/}
                     {/*<Profile/>*/}

@@ -4,34 +4,26 @@ import DialogItem from './DialogItem/DialogItem';
 import DialogMessage from './DialogMessage/DialogMessage';
 
 
-type DialogsPropsType = {
-    props: any
+type DialogsType = {
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
+}
+
+type DialogType = {
+    id: number
+    name: string
+}
+
+type MessageType = {
+    id: number
+    message: string
 }
 
 
-const Dialogs = (props: DialogsPropsType) => {
+const Dialogs = (props: DialogsType) => {
 
 
-    let dialogs = [
-        {id: 1, name: 'Dimych'},
-        {id: 2, name: 'Andrey'},
-        {id: 3, name: 'Sveta'},
-        {id: 4, name: 'Sasha'},
-        {id: 5, name: 'Viktor'},
-        {id: 6, name: 'Valera'}
-    ];
-
-    let messages = [
-        {id: 1, message: 'Hi'},
-        {id: 2, message: 'How is your it-kamasutra'},
-        {id: 3, message: 'Yo'},
-        {id: 4, message: 'Yo'},
-        {id: 5, message: 'Yo'},
-        {id: 6, message: 'Yo'}
-    ];
-
-
-    let dialogsElements = dialogs.map((el) => {
+    let dialogsElements = props.dialogs.map((el) => {
         return (
             <DialogItem id={el.id} name={el.name}/>
         );
@@ -40,7 +32,7 @@ const Dialogs = (props: DialogsPropsType) => {
     // Можно удалить лишнюю разметку, так как в этой константе будет возвращаться Только ОДИН элемент (компонента), и получиться такая Короткая запись:
     // let dialogsElements = dialogs.map(el => <DialogItem id={el.id} name={el.name}/>);
 
-    let messagesElements = messages.map((el) => {
+    let messagesElements = props.messages.map((el) => {
         return (
             <DialogMessage message={el.message}/>
         );
