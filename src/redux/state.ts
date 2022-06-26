@@ -1,3 +1,8 @@
+type friendType = {
+    id: number
+    name: string
+}
+
 type PostType = {
     id: number
     post: string
@@ -12,6 +17,7 @@ type MessageType = {
 type DialogType = {
     id: number
     name: string
+    avatar: string
 }
 
 type profilePageType = {               // Типизация ветки стейта profilePage //
@@ -23,7 +29,9 @@ type dialogsPageType = {               // Типизация ветки стей
     messages: Array<MessageType>
 }
 
-type sidebarType = {}
+type sidebarType = {
+    friends: Array<friendType>
+}
 
 
 export type RootStateType = {          // Типизация ВСЕГО стейта (state) //
@@ -38,12 +46,36 @@ let state: RootStateType = {           // Создан Стейт (state) //
     dialogsPage: {
 
         dialogs: [
-            {id: 1, name: 'Dimych'},
-            {id: 2, name: 'Andrey'},
-            {id: 3, name: 'Sveta'},
-            {id: 4, name: 'Sasha'},
-            {id: 5, name: 'Viktor'},
-            {id: 6, name: 'Valera'}
+            {
+                id: 1,
+                name: 'Dimych',
+                avatar: 'https://d1uqii9w4uahg1.cloudfront.net/cdn/x/x@c6cae1948b/https://s52.impactinit.com/smsimg30//pv/ingimagecontributors/ing_47129_23497.jpg'
+            },
+            {
+                id: 2,
+                name: 'Andrey',
+                avatar: 'https://d1uqii9w4uahg1.cloudfront.net/cdn/x/x@c6cae1948b/https://s52.impactinit.com/smsimg30//pv/ingimagecontributors/ing_47129_23497.jpg'
+            },
+            {
+                id: 3,
+                name: 'Sveta',
+                avatar: 'https://www.clipartmax.com/png/middle/108-1085862_aim-for-teaching-has-always-helped-me-and-encouraged-girl-avatar-png.png'
+            },
+            {
+                id: 4,
+                name: 'Sasha',
+                avatar: 'https://www.clipartmax.com/png/middle/108-1085862_aim-for-teaching-has-always-helped-me-and-encouraged-girl-avatar-png.png'
+            },
+            {
+                id: 5,
+                name: 'Viktor',
+                avatar: 'https://d1uqii9w4uahg1.cloudfront.net/cdn/x/x@c6cae1948b/https://s52.impactinit.com/smsimg30//pv/ingimagecontributors/ing_47129_23497.jpg'
+            },
+            {
+                id: 6,
+                name: 'Valera',
+                avatar: 'https://d1uqii9w4uahg1.cloudfront.net/cdn/x/x@c6cae1948b/https://s52.impactinit.com/smsimg30//pv/ingimagecontributors/ing_47129_23497.jpg'
+            }
         ],
 
         messages: [
@@ -65,7 +97,14 @@ let state: RootStateType = {           // Создан Стейт (state) //
         ]
     },
 
-    sidebar: {}
+    sidebar: {
+
+        friends: [
+            {id: 1, name: 'Andrey'},
+            {id: 1, name: 'Sasha'},
+            {id: 1, name: 'Sveta'}
+        ]
+    }
 };
 
 export default state;

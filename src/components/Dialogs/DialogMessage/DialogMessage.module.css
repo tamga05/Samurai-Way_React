@@ -5,3 +5,8 @@
     display: flex;
     align-items: center;
 }
+
+.message:nth-child(even) {
+    /*justify-content: flex-end;*/
+    margin-left: 300px;
+}
