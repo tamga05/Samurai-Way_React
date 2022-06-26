@@ -23,13 +23,13 @@ type dialogsPageType = {               // Типизация ветки стей
     messages: Array<MessageType>
 }
 
-type sidebarPageType = {}
+type sidebarType = {}
 
 
 export type RootStateType = {          // Типизация ВСЕГО стейта (state) //
     dialogsPage: dialogsPageType
     profilePage: profilePageType
-    sidebarPage: sidebarPageType
+    sidebar: sidebarType
 }
 
 
@@ -65,7 +65,7 @@ let state: RootStateType = {           // Создан Стейт (state) //
         ]
     },
 
-    sidebarPage: {}
+    sidebar: {}
 };
 
 export default state;
