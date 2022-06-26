@@ -8,28 +8,11 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import {RootStateType} from './redux/state';
 
 
 type AppType = {
-    posts: Array<PostType>
-    dialogs: Array<DialogType>
-    messages: Array<MessageType>
-}
-
-type PostType = {
-    id: number
-    post: string
-    likescount: number
-}
-
-type DialogType = {
-    id: number
-    name: string
-}
-
-type MessageType = {
-    id: number
-    message: string
+    state: RootStateType
 }
 
 
@@ -42,16 +25,14 @@ const App = (props: AppType) => {
                     <Header/>
                     <Navbar/>
                     <div className="appWrapperContent">
-                        <Route path="/dialogs" render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-                        <Route path="/profile" render={() => <Profile posts={props.posts}/>}/>
+                        <Route path="/dialogs" render={() => <Dialogs state={props.state}/>}/>
+                        <Route path="/profile" render={() => <Profile state={props.state}/>}/>
 
                         {/*<Route path="/news" render={() => <News/>}/>*/}
                         {/*<Route path="/music" render={() => <Music/>}/>*/}
                         {/*<Route path="/settings" render={() => <Settings/>}/>*/}
 
                     </div>
-                    {/*<Dialogs props={'any'}/>*/}
-                    {/*<Profile/>*/}
                 </div>
             </div>
         </BrowserRouter>
