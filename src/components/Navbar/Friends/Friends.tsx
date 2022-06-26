@@ -8,11 +8,18 @@ type FriendsType = {
 
 
 const Friends = (props: FriendsType) => {
+
+
+    let friendsElements = props.state.sidebar.friends.map((el) => {
+        return (
+            <div>{el.name} {el.secondName}</div>
+        );
+    });
+
+
     return (
         <div>
-            <div>A</div>
-            <div>B</div>
-            <div>C</div>
+            <div>{friendsElements}</div>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 type friendType = {
     id: number
     name: string
+    secondName: string
 }
 
 type PostType = {
@@ -100,9 +101,9 @@ let state: RootStateType = {           // Создан Стейт (state) //
     sidebar: {
 
         friends: [
-            {id: 1, name: 'Andrey'},
-            {id: 1, name: 'Sasha'},
-            {id: 1, name: 'Sveta'}
+            {id: 1, name: 'Andrey', secondName: 'Nikitin'},
+            {id: 1, name: 'Sasha', secondName: 'Ivanova'},
+            {id: 1, name: 'Sveta', secondName: 'Petrova'}
         ]
     }
 };
