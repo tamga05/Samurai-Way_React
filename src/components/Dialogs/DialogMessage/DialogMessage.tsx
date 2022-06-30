@@ -8,10 +8,24 @@ type DialogMessageType = {
 
 
 const DialogMessage = (props: DialogMessageType) => {
+
+
+    let newMessageElement = React.createRef<HTMLTextAreaElement>()
+
+
+    const addMessage = () => {
+        let text = newMessageElement.current?.value;
+        alert(text)
+    }
+
+
     return (
-        <div className={s.message}>
-            {props.message}
+        <div>
+            <div className={s.message}>{props.message}</div>
+            <textarea ref={newMessageElement}></textarea>
+            <button type="submit" className={s.button} onClick={addMessage}>Add message</button>
         </div>
+
     );
 };
 

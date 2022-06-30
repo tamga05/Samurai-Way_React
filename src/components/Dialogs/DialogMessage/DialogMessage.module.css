@@ -10,3 +10,7 @@
     /*justify-content: flex-end;*/
     margin-left: 300px;
 }
+
+.button {
+    display: block;
+}
