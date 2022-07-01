@@ -5,6 +5,7 @@ import s from './MyPosts.module.css';
 
 type MyPostsType = {
     posts: Array<PostType>
+    addPost: (postText: string) => void
 }
 
 type PostType = {
@@ -28,8 +29,12 @@ const MyPosts = (props: MyPostsType) => {
 
 
     const addPost = () => {
-        let text = newPostElement.current?.value;
-        alert(text)
+        // let text = newPostElement.current?.value;
+        // alert(text)
+        //
+        if (newPostElement.current) {
+            props.addPost(newPostElement.current.value)
+        }
     }
 
 

@@ -10,6 +10,8 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import {RootStateType} from './redux/state';
 import Friends from './components/Navbar/Friends/Friends';
+import {addPost} from './redux/state';
+
 
 type AppType = {
     state: RootStateType
@@ -26,7 +28,7 @@ const App = (props: AppType) => {
                     <Navbar/>
                     <div className="appWrapperContent">
                         <Route path="/dialogs" render={() => <Dialogs state={props.state}/>}/>
-                        <Route path="/profile" render={() => <Profile state={props.state}/>}/>
+                        <Route path="/profile" render={() => <Profile state={props.state} addPost={addPost}/>}/>
 
                         {/*<Route path="/news" render={() => <News/>}/>*/}
                         {/*<Route path="/music" render={() => <Music/>}/>*/}

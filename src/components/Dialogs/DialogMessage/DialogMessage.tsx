@@ -23,7 +23,7 @@ const DialogMessage = (props: DialogMessageType) => {
         <div>
             <div className={s.message}>{props.message}</div>
             <textarea ref={newMessageElement}></textarea>
-            <button type="submit" className={s.button} onClick={addMessage}>Add message</button>
+            <button type="submit" className={s.button} onClick={addMessage}>Send message</button>
         </div>
 
     );

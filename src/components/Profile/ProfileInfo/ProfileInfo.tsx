@@ -12,7 +12,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = (props) => {
 
             <img className={s.profileInfoImg}
                  src="https://www.hagalerya11.co.il/wp-content/uploads/2020/05/sea1s.jpg"
-                 alt="paradise"/>
+                 alt="beach image"/>
 
             <div className={s.profileInfoBlogger}>
                 <h3>Blogger</h3>

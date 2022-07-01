@@ -106,6 +106,18 @@ let state: RootStateType = {           // Создан Стейт (state) //
             {id: 1, name: 'Sveta', secondName: 'Petrova'}
         ]
     }
-};
+}
+
+
+export const addPost = (postText: string) => {
+
+    const newPost: PostType = {
+        id: new Date().getTime(),
+        post: postText,
+        likescount: 0
+    }
+
+    state.profilePage.posts.push(newPost)
+}
 
 export default state;

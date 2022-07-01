@@ -13,4 +13,6 @@
 
 .button {
     display: block;
+    width: 120px;
+    height: 25px;
 }
