@@ -1,5 +1,6 @@
 .item {
     color: #ff0000;
+    font-weight: 700;
 }
 
 .avatar {
@@ -16,4 +17,9 @@
     gap: 30px;
     /*padding-left: 30px;*/
     align-items: center;
+}
+
+.count {
+    font-weight: 700;
+    color: red;
 }

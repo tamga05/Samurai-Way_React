@@ -10,13 +10,12 @@ type PostType = {
 
 const Post: React.FC<PostType> = (props) => {
 
-
     return (
         <div className={s.PostWrapper}>
-            <img className={s.avatar} src="https://i.pinimg.com/originals/62/f2/03/62f203bea44b49f7b744e956b07f0a6e.jpg" alt="avatar"/>
+            <img className={s.avatar} src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Pic.png" alt="avatar-image"/>
             <div>
                 <div className={s.item}>{props.text}</div>
-                <div>Likes count: ({props.likesCount})</div>
+                <div>Likes count: (<span className={s.count}> {props.likesCount} </span>)</div>
             </div>
         </div>
     );

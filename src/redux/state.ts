@@ -1,10 +1,13 @@
+import {renderTree} from '../render';
+
+
 type friendType = {
     id: number
     name: string
     secondName: string
 }
 
-type PostType = {
+export type PostType = {
     id: number
     post: string
     likescount: number
@@ -117,7 +120,10 @@ export const addPost = (postText: string) => {
         likescount: 0
     }
 
-    state.profilePage.posts.push(newPost)
+    state.profilePage.posts.push(newPost);
+
+    renderTree(state);
 }
 
 export default state;
+

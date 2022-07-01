@@ -20,8 +20,8 @@ const MyPosts = (props: MyPostsType) => {
 
     let postsElements = props.posts.map((el) => {
         return (
-            <Post text={el.post} likesCount={el.likescount}/>
-        );
+            <Post key={el.id} text={el.post} likesCount={el.likescount}/>
+        )
     });
 
 
@@ -36,7 +36,6 @@ const MyPosts = (props: MyPostsType) => {
             props.addPost(newPostElement.current.value)
         }
     }
-
 
     return (
         <div className={s.myPosts}>

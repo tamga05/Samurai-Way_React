@@ -13,16 +13,20 @@ const Navbar = () => {
                 <div>
                     <div className={s.wrapperNavbarBlock}>
                         <div className={s.wrapperNavbarAvatar}>
-                            <img className={s.navbarAvatar} src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Pic.png"
-                                 alt="Andrey"/>
+                            {/*<img className={s.navbarAvatar} src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Pic.png"*/}
+                            {/*     alt="Andrey-image"/>*/}
+                            <img className={s.navbarAvatar}
+                                 src="http://sman1kalitidu.sch.id/storage/sman1kalitidu.sch.id/editor/LiFf3LIV4Jcptgo6pUl8zVEnmdmppREOX0xEyeyU.png"
+                                 alt="Andrey-image"/>
                             <span className={s.navbarSpan}>Andrey</span>
                         </div>
                         <div className={s.wrapperNavbarAvatar}>
-                            <img className={s.navbarAvatar} src="https://www.pngarts.com/files/3/Girl-Avatar-PNG-Download-Image.png" alt="Sasha"/>
+                            <img className={s.navbarAvatar} src="https://www.pngarts.com/files/3/Girl-Avatar-PNG-Download-Image.png"
+                                 alt="Sasha-image"/>
                             <span className={s.navbarSpan}>Sasha</span>
                         </div>
                         <div className={s.wrapperNavbarAvatar}>
-                            <img className={s.navbarAvatar} src="https://www.pngarts.com/files/3/Employee-Avatar-PNG-Pic.png" alt="Sveta"/>
+                            <img className={s.navbarAvatar} src="https://www.pngarts.com/files/3/Employee-Avatar-PNG-Pic.png" alt="Sveta-image"/>
                             <span className={s.navbarSpan}>Sveta</span>
                         </div>
                     </div>
