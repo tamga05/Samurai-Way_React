@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import Post from './Post/Post';
 import s from './MyPosts.module.css';
 
@@ -6,6 +6,8 @@ import s from './MyPosts.module.css';
 type MyPostsType = {
     posts: Array<PostType>
     addPost: (postText: string) => void
+    message: string
+    changeNewText: (newText: string) => void
 }
 
 type PostType = {
@@ -25,24 +27,32 @@ const MyPosts = (props: MyPostsType) => {
     });
 
 
-    let newPostElement = React.createRef<HTMLTextAreaElement>()
+    // let newPostElement = React.createRef<HTMLTextAreaElement>()
 
 
     const addPost = () => {
         // let text = newPostElement.current?.value;
         // alert(text)
         //
-        if (newPostElement.current) {
-            props.addPost(newPostElement.current.value)
-        }
+        // if (newPostElement.current) {
+        // props.addPost(newPostElement.current.value)
+        props.addPost(props.message)
+
+        // }
     }
+
+
+    const newTextChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        props.changeNewText(e.currentTarget.value)
+    }
+
 
     return (
         <div className={s.myPosts}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement} placeholder={'Write your story here...'}></textarea>
+                    <textarea placeholder={'Write your story here...'} value={props.message} onChange={newTextChangeHandler}></textarea>
                 </div>
                 <div>
                     <button type="submit" className={s.button} onClick={addPost}>Add post</button>

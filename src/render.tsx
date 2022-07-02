@@ -12,3 +12,4 @@ export const renderTree = (state: RootStateType) => {
         document.getElementById('root')
     )
 }
+

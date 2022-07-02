@@ -24,7 +24,8 @@ type DialogType = {
     avatar: string
 }
 
-type profilePageType = {               // Типизация ветки стейта profilePage //
+type ProfilePageType = {               // Типизация ветки стейта profilePage //
+    messageForNewPost: string
     posts: Array<PostType>
 }
 
@@ -40,7 +41,7 @@ type sidebarType = {
 
 export type RootStateType = {          // Типизация ВСЕГО стейта (state) //
     dialogsPage: dialogsPageType
-    profilePage: profilePageType
+    profilePage: ProfilePageType
     sidebar: sidebarType
 }
 
@@ -94,6 +95,8 @@ let state: RootStateType = {           // Создан Стейт (state) //
 
     profilePage: {
 
+        messageForNewPost: '',
+
         posts: [
             {id: 1, post: 'The sea is cool...', likescount: 15},
             {id: 2, post: 'Chill out is great !!!', likescount: 18},
@@ -121,6 +124,12 @@ export const addPost = (postText: string) => {
     }
 
     state.profilePage.posts.push(newPost);
+
+    renderTree(state);
+}
+
+export const changeNewText = (newText: string) => {
+    state.profilePage.messageForNewPost = newText;
 
     renderTree(state);
 }

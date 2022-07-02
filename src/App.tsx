@@ -8,9 +8,8 @@ import {BrowserRouter, Route} from 'react-router-dom';
 // import News from './components/News/News';
 // import Music from './components/Music/Music';
 // import Settings from './components/Settings/Settings';
-import {RootStateType} from './redux/state';
+import state, {addPost, changeNewText, RootStateType} from './redux/state';
 import Friends from './components/Navbar/Friends/Friends';
-import {addPost} from './redux/state';
 
 
 type AppType = {
@@ -28,7 +27,9 @@ const App = (props: AppType) => {
                     <Navbar/>
                     <div className="appWrapperContent">
                         <Route path="/dialogs" render={() => <Dialogs state={props.state}/>}/>
-                        <Route path="/profile" render={() => <Profile state={props.state} addPost={addPost}/>}/>
+                        <Route path="/profile"
+                               render={() => <Profile state={props.state} message={state.profilePage.messageForNewPost} addPost={addPost}
+                                                      changeNewText={changeNewText}/>}/>
 
                         {/*<Route path="/news" render={() => <News/>}/>*/}
                         {/*<Route path="/music" render={() => <Music/>}/>*/}
