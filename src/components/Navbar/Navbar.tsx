@@ -16,7 +16,7 @@ const Navbar = () => {
                             {/*<img className={s.navbarAvatar} src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Pic.png"*/}
                             {/*     alt="Andrey-image"/>*/}
                             <img className={s.navbarAvatar}
-                                 src="http://sman1kalitidu.sch.id/storage/sman1kalitidu.sch.id/editor/LiFf3LIV4Jcptgo6pUl8zVEnmdmppREOX0xEyeyU.png"
+                                 src="https://escape-kit.com/wp-content/uploads/2020/06/rouge-min.png"
                                  alt="Andrey-image"/>
                             <span className={s.navbarSpan}>Andrey</span>
                         </div>

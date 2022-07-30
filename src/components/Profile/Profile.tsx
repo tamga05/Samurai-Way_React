@@ -23,3 +23,4 @@ const Profile = (props: ProfileType) => {
 };
 
 export default Profile;
+
