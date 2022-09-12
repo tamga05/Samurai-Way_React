@@ -33,11 +33,12 @@ const MyPosts = (props: MyPostsType) => {
     const addPost = () => {
         // let text = newPostElement.current?.value;
         // alert(text)
-        //
+
         // if (newPostElement.current) {
         // props.addPost(newPostElement.current.value)
-        props.addPost(props.message)
 
+        props.addPost(props.message)
+        // props.changeNewText('')  // Очистка Поля ввода после Добавления нового поста !!! Сейчас очистка происходит в state.ts !!!
         // }
     }
 
