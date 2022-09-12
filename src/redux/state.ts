@@ -1,5 +1,6 @@
-import {renderTree} from '../render';
-
+let renderTree = () => {
+    console.log('State changed')
+}
 
 type friendType = {
     id: number
@@ -128,14 +129,19 @@ export const addPost = () => {
 
     state.profilePage.messageForNewPost = ''  // Очистка Поля ввода после Добавления нового поста !!!
 
-    renderTree(state);
+    renderTree();
 }
 
 export const changeNewText = (newText: string) => {
     state.profilePage.messageForNewPost = newText;
 
-    renderTree(state);
+    renderTree();
 }
+
+export const subscribe = (observer: () => void) => {
+    renderTree = observer;
+}
+
 
 export default state;
 

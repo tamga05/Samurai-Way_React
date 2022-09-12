@@ -1,13 +1,20 @@
 import React from 'react';
 import './index.css';
+import state, {subscribe} from './redux/state';
+import ReactDOM from 'react-dom';
 import App from './App';
-import state from './redux/state';
-import {renderTree} from './render';
 
 
-//addPost('Hello, Andrey !!!');
+const renderTree = () => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <App state={state}/>
+        </React.StrictMode>,
+        document.getElementById('root')
+    )
+}
 
 
-renderTree(state);
+renderTree();
 
-export default App;
+subscribe(renderTree);
