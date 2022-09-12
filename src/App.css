@@ -75,6 +75,10 @@
     background: linear-gradient(135deg, rgb(136, 176, 248) 16%, rgb(173, 245, 247) 76%);
 }
 
+body::-webkit-scrollbar {
+    width: 0;
+}
+
 
 
 

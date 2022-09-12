@@ -54,32 +54,32 @@ let state: RootStateType = {           // Создан Стейт (state) //
             {
                 id: 1,
                 name: 'Dimych',
-                avatar: 'https://d1uqii9w4uahg1.cloudfront.net/cdn/x/x@c6cae1948b/https://s52.impactinit.com/smsimg30//pv/ingimagecontributors/ing_47129_23497.jpg'
+                avatar: 'https://i.pinimg.com/564x/10/45/ba/1045ba1a64aeb19201d5fd6d8d2b1722.jpg'
             },
             {
                 id: 2,
                 name: 'Andrey',
-                avatar: 'https://d1uqii9w4uahg1.cloudfront.net/cdn/x/x@c6cae1948b/https://s52.impactinit.com/smsimg30//pv/ingimagecontributors/ing_47129_23497.jpg'
+                avatar: 'https://escape-kit.com/wp-content/uploads/2020/06/rouge-min.png'
             },
             {
                 id: 3,
                 name: 'Sveta',
-                avatar: 'https://www.clipartmax.com/png/middle/108-1085862_aim-for-teaching-has-always-helped-me-and-encouraged-girl-avatar-png.png'
+                avatar: 'https://www.pngarts.com/files/3/Employee-Avatar-PNG-Pic.png'
             },
             {
                 id: 4,
                 name: 'Sasha',
-                avatar: 'https://www.clipartmax.com/png/middle/108-1085862_aim-for-teaching-has-always-helped-me-and-encouraged-girl-avatar-png.png'
+                avatar: 'https://www.pngarts.com/files/3/Girl-Avatar-PNG-Download-Image.png'
             },
             {
                 id: 5,
                 name: 'Viktor',
-                avatar: 'https://d1uqii9w4uahg1.cloudfront.net/cdn/x/x@c6cae1948b/https://s52.impactinit.com/smsimg30//pv/ingimagecontributors/ing_47129_23497.jpg'
+                avatar: 'https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child-thumbnail.png'
             },
             {
                 id: 6,
                 name: 'Valera',
-                avatar: 'https://d1uqii9w4uahg1.cloudfront.net/cdn/x/x@c6cae1948b/https://s52.impactinit.com/smsimg30//pv/ingimagecontributors/ing_47129_23497.jpg'
+                avatar: 'https://e7.pngegg.com/pngimages/78/788/png-clipart-computer-icons-avatar-business-computer-software-user-avatar-child-face.png'
             }
         ],
 
@@ -115,15 +115,18 @@ let state: RootStateType = {           // Создан Стейт (state) //
 }
 
 
-export const addPost = (postText: string) => {
+export const addPost = () => {
 
     const newPost: PostType = {
         id: new Date().getTime(),
-        post: postText,
+        // post: postText,
+        post: state.profilePage.messageForNewPost,
         likescount: 0
     }
 
     state.profilePage.posts.push(newPost);
+
+    state.profilePage.messageForNewPost = ''  // Очистка Поля ввода после Добавления нового поста !!!
 
     renderTree(state);
 }
