@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import state, {subscribe} from './redux/state';
+import {store} from './redux/state';
 import ReactDOM from 'react-dom';
 import App from './App';
 
@@ -8,7 +8,7 @@ import App from './App';
 const renderTree = () => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state}/>
+            <App state={store.getState()} addPost={store.addPost.bind(store)} changeNewText={store.changeNewText.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     )
@@ -17,4 +17,4 @@ const renderTree = () => {
 
 renderTree();
 
-subscribe(renderTree);
+store.subscribe(renderTree);
