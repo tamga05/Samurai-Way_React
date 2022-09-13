@@ -1,6 +1,118 @@
-let renderTree = () => {
-    console.log('State changed')
+export type StoreType = {
+    _state: RootStateType,
+    getState: () => RootStateType,
+    _renderTree: () => void,
+    addPost: () => void,
+    changeNewText: (newText: string) => void,
+    subscribe: (observer: () => void) => void
 }
+
+
+export const store: StoreType = {
+
+    _state: {           // Создан Стейт (state) //
+
+        dialogsPage: {
+
+            dialogs: [
+                {
+                    id: 1,
+                    name: 'Dimych',
+                    avatar: 'https://i.pinimg.com/564x/10/45/ba/1045ba1a64aeb19201d5fd6d8d2b1722.jpg'
+                },
+                {
+                    id: 2,
+                    name: 'Andrey',
+                    avatar: 'https://escape-kit.com/wp-content/uploads/2020/06/rouge-min.png'
+                },
+                {
+                    id: 3,
+                    name: 'Sveta',
+                    avatar: 'https://www.pngarts.com/files/3/Employee-Avatar-PNG-Pic.png'
+                },
+                {
+                    id: 4,
+                    name: 'Sasha',
+                    avatar: 'https://www.pngarts.com/files/3/Girl-Avatar-PNG-Download-Image.png'
+                },
+                {
+                    id: 5,
+                    name: 'Viktor',
+                    avatar: 'https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child-thumbnail.png'
+                },
+                {
+                    id: 6,
+                    name: 'Valera',
+                    avatar: 'https://e7.pngegg.com/pngimages/78/788/png-clipart-computer-icons-avatar-business-computer-software-user-avatar-child-face.png'
+                }
+            ],
+
+            messages: [
+                {id: 1, message: 'Hi'},
+                {id: 2, message: 'How is your it-kamasutra'},
+                {id: 3, message: 'Yo'},
+                {id: 4, message: 'Yo'},
+                {id: 5, message: 'Yo'},
+                {id: 6, message: 'Yo'}
+            ]
+        },
+
+        profilePage: {
+
+            messageForNewPost: '',
+
+            posts: [
+                {id: 1, post: 'The sea is cool...', likescount: 15},
+                {id: 2, post: 'Chill out is great !!!', likescount: 18},
+                {id: 3, post: 'Life is Beautiful !!!', likescount: 20}
+            ]
+        },
+
+        sidebar: {
+
+            friends: [
+                {id: 1, name: 'Andrey', secondName: 'Nikitin'},
+                {id: 1, name: 'Sasha', secondName: 'Ivanova'},
+                {id: 1, name: 'Sveta', secondName: 'Petrova'}
+            ]
+        }
+    },
+
+    getState() {
+        return this._state;
+    },
+
+    _renderTree() {
+        console.log('State changed')
+    },
+
+    addPost() {
+
+        const newPost: PostType = {
+            id: new Date().getTime(),
+            // post: postText,
+            post: this._state.profilePage.messageForNewPost,
+            likescount: 0
+        }
+
+        this._state.profilePage.posts.push(newPost);
+
+        this._state.profilePage.messageForNewPost = ''  // Очистка Поля ввода после Добавления нового поста !!!
+
+        this._renderTree();
+    },
+
+    changeNewText(newText: string) {
+        this._state.profilePage.messageForNewPost = newText;
+
+        this._renderTree();
+    },
+
+    subscribe(observer) {
+        this._renderTree = observer;
+    }
+}
+
 
 type friendType = {
     id: number
@@ -39,7 +151,6 @@ type sidebarType = {
     friends: Array<friendType>
 }
 
-
 export type RootStateType = {          // Типизация ВСЕГО стейта (state) //
     dialogsPage: dialogsPageType
     profilePage: ProfilePageType
@@ -47,101 +158,100 @@ export type RootStateType = {          // Типизация ВСЕГО стей
 }
 
 
-let state: RootStateType = {           // Создан Стейт (state) //
+// let renderTree = () => {
+//     console.log('State changed')
+// }
 
-    dialogsPage: {
+// let state: RootStateType = {           // Создан Стейт (state) //
+//
+//     dialogsPage: {
+//
+//         dialogs: [
+//             {
+//                 id: 1,
+//                 name: 'Dimych',
+//                 avatar: 'https://i.pinimg.com/564x/10/45/ba/1045ba1a64aeb19201d5fd6d8d2b1722.jpg'
+//             },
+//             {
+//                 id: 2,
+//                 name: 'Andrey',
+//                 avatar: 'https://escape-kit.com/wp-content/uploads/2020/06/rouge-min.png'
+//             },
+//             {
+//                 id: 3,
+//                 name: 'Sveta',
+//                 avatar: 'https://www.pngarts.com/files/3/Employee-Avatar-PNG-Pic.png'
+//             },
+//             {
+//                 id: 4,
+//                 name: 'Sasha',
+//                 avatar: 'https://www.pngarts.com/files/3/Girl-Avatar-PNG-Download-Image.png'
+//             },
+//             {
+//                 id: 5,
+//                 name: 'Viktor',
+//                 avatar: 'https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child-thumbnail.png'
+//             },
+//             {
+//                 id: 6,
+//                 name: 'Valera',
+//                 avatar: 'https://e7.pngegg.com/pngimages/78/788/png-clipart-computer-icons-avatar-business-computer-software-user-avatar-child-face.png'
+//             }
+//         ],
+//
+//         messages: [
+//             {id: 1, message: 'Hi'},
+//             {id: 2, message: 'How is your it-kamasutra'},
+//             {id: 3, message: 'Yo'},
+//             {id: 4, message: 'Yo'},
+//             {id: 5, message: 'Yo'},
+//             {id: 6, message: 'Yo'}
+//         ]
+//     },
+//
+//     profilePage: {
+//
+//         messageForNewPost: '',
+//
+//         posts: [
+//             {id: 1, post: 'The sea is cool...', likescount: 15},
+//             {id: 2, post: 'Chill out is great !!!', likescount: 18},
+//             {id: 3, post: 'Life is Beautiful !!!', likescount: 20}
+//         ]
+//     },
+//
+//     sidebar: {
+//
+//         friends: [
+//             {id: 1, name: 'Andrey', secondName: 'Nikitin'},
+//             {id: 1, name: 'Sasha', secondName: 'Ivanova'},
+//             {id: 1, name: 'Sveta', secondName: 'Petrova'}
+//         ]
+//     }
+// }
 
-        dialogs: [
-            {
-                id: 1,
-                name: 'Dimych',
-                avatar: 'https://i.pinimg.com/564x/10/45/ba/1045ba1a64aeb19201d5fd6d8d2b1722.jpg'
-            },
-            {
-                id: 2,
-                name: 'Andrey',
-                avatar: 'https://escape-kit.com/wp-content/uploads/2020/06/rouge-min.png'
-            },
-            {
-                id: 3,
-                name: 'Sveta',
-                avatar: 'https://www.pngarts.com/files/3/Employee-Avatar-PNG-Pic.png'
-            },
-            {
-                id: 4,
-                name: 'Sasha',
-                avatar: 'https://www.pngarts.com/files/3/Girl-Avatar-PNG-Download-Image.png'
-            },
-            {
-                id: 5,
-                name: 'Viktor',
-                avatar: 'https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child-thumbnail.png'
-            },
-            {
-                id: 6,
-                name: 'Valera',
-                avatar: 'https://e7.pngegg.com/pngimages/78/788/png-clipart-computer-icons-avatar-business-computer-software-user-avatar-child-face.png'
-            }
-        ],
+// export const addPost = () => {
+//
+//     const newPost: PostType = {
+//         id: new Date().getTime(),
+//         // post: postText,
+//         post: state.profilePage.messageForNewPost,
+//         likescount: 0
+//     }
+//
+//     state.profilePage.posts.push(newPost);
+//
+//     state.profilePage.messageForNewPost = ''  // Очистка Поля ввода после Добавления нового поста !!!
+//
+//     renderTree();
+// }
 
-        messages: [
-            {id: 1, message: 'Hi'},
-            {id: 2, message: 'How is your it-kamasutra'},
-            {id: 3, message: 'Yo'},
-            {id: 4, message: 'Yo'},
-            {id: 5, message: 'Yo'},
-            {id: 6, message: 'Yo'}
-        ]
-    },
+// export const changeNewText = (newText: string) => {
+//     state.profilePage.messageForNewPost = newText;
+//
+//     renderTree();
+// }
 
-    profilePage: {
-
-        messageForNewPost: '',
-
-        posts: [
-            {id: 1, post: 'The sea is cool...', likescount: 15},
-            {id: 2, post: 'Chill out is great !!!', likescount: 18},
-            {id: 3, post: 'Life is Beautiful !!!', likescount: 20}
-        ]
-    },
-
-    sidebar: {
-
-        friends: [
-            {id: 1, name: 'Andrey', secondName: 'Nikitin'},
-            {id: 1, name: 'Sasha', secondName: 'Ivanova'},
-            {id: 1, name: 'Sveta', secondName: 'Petrova'}
-        ]
-    }
-}
-
-
-export const addPost = () => {
-
-    const newPost: PostType = {
-        id: new Date().getTime(),
-        // post: postText,
-        post: state.profilePage.messageForNewPost,
-        likescount: 0
-    }
-
-    state.profilePage.posts.push(newPost);
-
-    state.profilePage.messageForNewPost = ''  // Очистка Поля ввода после Добавления нового поста !!!
-
-    renderTree();
-}
-
-export const changeNewText = (newText: string) => {
-    state.profilePage.messageForNewPost = newText;
-
-    renderTree();
-}
-
-export const subscribe = (observer: () => void) => {
-    renderTree = observer;
-}
-
-
-export default state;
-
+// export const subscribe = (observer: () => void) => {
+//     renderTree = observer;
+// }
