@@ -9,7 +9,6 @@ type PostType = {
 
 
 const Post: React.FC<PostType> = (props) => {
-
     return (
         <div className={s.PostWrapper}>
             <img className={s.avatar} src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Pic.png" alt="avatar-image"/>
