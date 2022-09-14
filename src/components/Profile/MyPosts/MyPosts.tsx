@@ -1,13 +1,13 @@
 import React, {ChangeEvent} from 'react';
 import Post from './Post/Post';
 import s from './MyPosts.module.css';
+import {ActionsType} from '../../../redux/state';
 
 
 type MyPostsType = {
     posts: Array<PostType>
-    addPost: (postText: string) => void
     message: string
-    changeNewText: (newText: string) => void
+    dispatch: (action: ActionsType) => void
 }
 
 type PostType = {
@@ -19,34 +19,23 @@ type PostType = {
 
 const MyPosts = (props: MyPostsType) => {
 
-
     let postsElements = props.posts.map((el) => {
         return (
             <Post key={el.id} text={el.post} likesCount={el.likescount}/>
         )
     });
 
-
     // let newPostElement = React.createRef<HTMLTextAreaElement>()
 
-
     const addPost = () => {
-        // let text = newPostElement.current?.value;
-        // alert(text)
-
-        // if (newPostElement.current) {
-        // props.addPost(newPostElement.current.value)
-
-        props.addPost(props.message)
-        // props.changeNewText('')  // Очистка Поля ввода после Добавления нового поста !!! Сейчас очистка происходит в state.ts !!!
-        // }
+        // props.addPost(props.message)
+        props.dispatch({type: 'ADD-POST', postText: props.message})
     }
-
 
     const newTextChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.changeNewText(e.currentTarget.value)
+        // props.changeNewText(e.currentTarget.value)
+        props.dispatch({type: 'CHANGE-NEW-TEXT', newText: e.currentTarget.value})
     }
-
 
     return (
         <div className={s.myPosts}>
