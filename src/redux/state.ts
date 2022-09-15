@@ -8,18 +8,35 @@ export type StoreType = {
     dispatch: (action: ActionsType) => void
 }
 
-type AddPostActionType = {
-    type: 'ADD-POST'
-    postText: string
+// type AddPostActionType = {
+//     type: 'ADD-POST'
+//     postText: string
+// }
+
+// type ChangeNewTextActionType = {
+//     type: 'CHANGE-NEW-TEXT'
+//     newText: string
+// }
+
+// type AddPostActionType = ReturnType<typeof addPostActionCreator>
+//
+// type ChangeNewTextActionType = ReturnType<typeof newTextChangeHandlerActionCreator>
+
+export type ActionsType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof newTextChangeHandlerActionCreator>     // Типизация Всего dispatch
+
+export const addPostActionCreator = (postText: string) => {
+    return {
+        type: 'ADD-POST',
+        postText: postText
+    } as const
 }
 
-type ChangeNewTextActionType = {
-    type: 'CHANGE-NEW-TEXT'
-    newText: string
+export const newTextChangeHandlerActionCreator = (newText: string) => {
+    return {
+        type: 'CHANGE-NEW-TEXT',
+        newText: newText
+    } as const
 }
-
-export type ActionsType = AddPostActionType | ChangeNewTextActionType      // Типизация Всего dispatch
-
 
 export const store: StoreType = {
     _state: {           // Создан Стейт (state) //
@@ -72,9 +89,9 @@ export const store: StoreType = {
         profilePage: {
             messageForNewPost: '',
             posts: [
-                {id: 1, post: 'The sea is cool...', likescount: 15},
-                {id: 2, post: 'Chill out is great !!!', likescount: 18},
-                {id: 3, post: 'Life is Beautiful !!!', likescount: 20}
+                {id: 1, post: 'Chill out is great !!!', likescount: 15},
+                {id: 2, post: 'Life is Beautiful !!!', likescount: 20},
+                // {id: 3, post: 'The sea is cool...', likescount: 18}
             ]
         },
 
@@ -95,21 +112,6 @@ export const store: StoreType = {
     subscribe(observer) {
         this._renderTree = observer;
     },
-    addPost() {
-        const postText = this._state.profilePage.messageForNewPost
-        const newPost: PostType = {
-            id: new Date().getTime(),
-            post: postText,
-            likescount: 0
-        }
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.messageForNewPost = ''             // Очистка Поля ввода после Добавления нового поста !!!
-        this._renderTree();
-    },
-    changeNewText(newText: string) {
-        this._state.profilePage.messageForNewPost = newText;
-        this._renderTree();
-    },
     dispatch(action) {                                             // dispatch
         if (action.type === 'ADD-POST') {
             const newPost: PostType = {
@@ -124,6 +126,23 @@ export const store: StoreType = {
             this._state.profilePage.messageForNewPost = action.newText;
             this._renderTree();
         }
+    },
+
+    addPost() {
+        const postText = this._state.profilePage.messageForNewPost
+        const newPost: PostType = {
+            id: new Date().getTime(),
+            post: postText,
+            likescount: 0
+        }
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.messageForNewPost = ''             // Очистка Поля ввода после Добавления нового поста !!!
+        this._renderTree();
+    },
+
+    changeNewText(newText: string) {
+        this._state.profilePage.messageForNewPost = newText;
+        this._renderTree();
     }
 }
 
