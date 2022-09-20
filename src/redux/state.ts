@@ -22,7 +22,11 @@ export type StoreType = {
 //
 // type ChangeNewTextActionType = ReturnType<typeof newTextChangeHandlerActionCreator>
 
-export type ActionsType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof newTextChangeHandlerActionCreator>     // Типизация Всего dispatch
+export type ActionsType =
+    ReturnType<typeof addPostActionCreator>
+    | ReturnType<typeof newTextChangeHandlerActionCreator>
+    | ReturnType<typeof updateNewMessageBodyCreator>
+    | ReturnType<typeof sendMessageCreator>  // Типизация Всего dispatch
 
 export const addPostActionCreator = (postText: string) => {
     return {
@@ -37,6 +41,27 @@ export const newTextChangeHandlerActionCreator = (newText: string) => {
         newText: newText
     } as const
 }
+
+
+// const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
+//
+// const SEND_MESSAGE = 'SEND_MESSAGE'
+
+
+export const updateNewMessageBodyCreator = (body: string) => {
+    return {
+        type: 'UPDATE_NEW_MESSAGE_BODY',
+        body: body
+    } as const
+}
+
+export const sendMessageCreator = () => {
+    return {
+        type: 'SEND_MESSAGE',
+        // body: body
+    } as const
+}
+
 
 export const store: StoreType = {
     _state: {           // Создан Стейт (state) //
@@ -83,7 +108,8 @@ export const store: StoreType = {
                 {id: 4, message: 'Yo'},
                 {id: 5, message: 'Yo'},
                 {id: 6, message: 'Yo'}
-            ]
+            ],
+            newMessageBody: ''
         },
 
         profilePage: {
@@ -124,6 +150,14 @@ export const store: StoreType = {
             this._renderTree();
         } else if (action.type === 'CHANGE-NEW-TEXT') {
             this._state.profilePage.messageForNewPost = action.newText;
+            this._renderTree();
+        } else if (action.type === 'UPDATE_NEW_MESSAGE_BODY') {
+            this._state.dialogsPage.newMessageBody = action.body;
+            this._renderTree();
+        } else if (action.type === 'SEND_MESSAGE') {
+            let body = this._state.dialogsPage.newMessageBody;
+            this._state.dialogsPage.newMessageBody = '';
+            this._state.dialogsPage.messages.push({id: 7, message: body});
             this._renderTree();
         }
     },
@@ -178,6 +212,7 @@ type ProfilePageType = {               // Типизация ветки стей
 type dialogsPageType = {               // Типизация ветки стейта dialogsPage //
     dialogs: Array<DialogType>
     messages: Array<MessageType>
+    newMessageBody: string
 }
 
 type sidebarType = {
