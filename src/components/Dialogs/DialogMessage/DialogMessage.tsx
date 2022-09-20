@@ -5,8 +5,8 @@ import {ActionsType, sendMessageCreator, StoreType, updateNewMessageBodyCreator}
 
 type DialogMessageType = {
     store: StoreType
-    dispatch: (action: ActionsType) => void
     message: string
+    dispatch: (action: ActionsType) => void
 }
 
 
@@ -34,7 +34,7 @@ const DialogMessage = (props: DialogMessageType) => {
             <textarea value={newMessageBody} placeholder={'Enter your message'} onChange={onNewMessageChange}></textarea>
             <button type="submit" className={s.button} onClick={onSendMessageClick}>Send message</button>
         </div>
-    )
-}
+    );
+};
 
 export default DialogMessage;
