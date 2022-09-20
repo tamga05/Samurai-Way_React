@@ -8,7 +8,7 @@ import Friends from './components/Navbar/Friends/Friends';
 // import News from './components/News/News';
 // import Music from './components/Music/Music';
 // import Settings from './components/Settings/Settings';
-import {HashRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 import {ActionsType, RootStateType} from './redux/state';
 
 
@@ -20,27 +20,24 @@ type AppType = {
 
 const App = (props: AppType) => {
     return (
-        <HashRouter>
+        <BrowserRouter>
             <div className="appMainWrapper">
                 <div className="appWrapper">
                     <Header/>
                     <Navbar/>
                     <div className="appWrapperContent">
-                        <Route path="/dialogs" render={() => <Dialogs state={props.state}/>}/>
+                        <Route path="/dialogs" render={() => <Dialogs state={props.state} dispatch={props.dispatch}/>}/>
                         <Route path="/profile"
-                            // render={() => <Profile state={props.state} message={props.state.profilePage.messageForNewPost} addPost={props.addPost}
-                            //                        changeNewText={props.changeNewText}/>}/>
-                               render={() => <Profile state={props.state} message={props.state.profilePage.messageForNewPost} dispatch={props.dispatch}/>}/>
+                               render={() => <Profile state={props.state} dispatch={props.dispatch} message={props.state.profilePage.messageForNewPost}/>}/>
+                        <Route path="/friends" render={() => <Friends state={props.state}/>}/>
 
                         {/*<Route path="/news" render={() => <News/>}/>*/}
                         {/*<Route path="/music" render={() => <Music/>}/>*/}
                         {/*<Route path="/settings" render={() => <Settings/>}/>*/}
-
-                        <Route path="/friends" render={() => <Friends state={props.state}/>}/>
                     </div>
                 </div>
             </div>
-        </HashRouter>
+        </BrowserRouter>
     );
 };
 
