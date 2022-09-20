@@ -1,18 +1,18 @@
 import React, {ChangeEvent} from 'react';
 import s from './DialogMessage.module.css';
-import {ActionsType, RootStateType, sendMessageCreator, updateNewMessageBodyCreator} from '../../../redux/state';
+import {ActionsType, sendMessageCreator, StoreType, updateNewMessageBodyCreator} from '../../../redux/state';
 
 
 type DialogMessageType = {
-    state: RootStateType
-    message: string
+    store: StoreType
     dispatch: (action: ActionsType) => void
+    message: string
 }
 
 
 const DialogMessage = (props: DialogMessageType) => {
 
-    let newMessageBody = props.state.dialogsPage.newMessageBody;
+    let newMessageBody = props.store._state.dialogsPage.newMessageBody;
 
     // let newMessageElement = React.createRef<HTMLTextAreaElement>()
 
@@ -34,7 +34,7 @@ const DialogMessage = (props: DialogMessageType) => {
             <textarea value={newMessageBody} placeholder={'Enter your message'} onChange={onNewMessageChange}></textarea>
             <button type="submit" className={s.button} onClick={onSendMessageClick}>Send message</button>
         </div>
-    );
-};
+    )
+}
 
 export default DialogMessage;

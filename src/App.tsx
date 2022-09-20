@@ -9,10 +9,11 @@ import Friends from './components/Navbar/Friends/Friends';
 // import Music from './components/Music/Music';
 // import Settings from './components/Settings/Settings';
 import {BrowserRouter, Route} from 'react-router-dom';
-import {ActionsType, RootStateType} from './redux/state';
+import {ActionsType, RootStateType, StoreType} from './redux/state';
 
 
 type AppType = {
+    store: StoreType
     state: RootStateType,
     dispatch: (action: ActionsType) => void
 }
@@ -26,7 +27,7 @@ const App = (props: AppType) => {
                     <Header/>
                     <Navbar/>
                     <div className="appWrapperContent">
-                        <Route path="/dialogs" render={() => <Dialogs state={props.state} dispatch={props.dispatch}/>}/>
+                        <Route path="/dialogs" render={() => <Dialogs store={props.store} dispatch={props.dispatch}/>}/>
                         <Route path="/profile"
                                render={() => <Profile state={props.state} dispatch={props.dispatch} message={props.state.profilePage.messageForNewPost}/>}/>
                         <Route path="/friends" render={() => <Friends state={props.state}/>}/>
