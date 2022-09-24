@@ -1,12 +1,11 @@
 import React, {ChangeEvent} from 'react';
 import s from './DialogMessage.module.css';
-import {ActionsType, sendMessageCreator, StoreType, updateNewMessageBodyCreator} from '../../../redux/state';
+import {StoreType, sendMessageCreator, updateNewMessageBodyCreator} from '../../../redux/state';
 
 
 type DialogMessageType = {
     store: StoreType
     message: string
-    dispatch: (action: ActionsType) => void
 }
 
 
@@ -19,12 +18,12 @@ const DialogMessage = (props: DialogMessageType) => {
     const onSendMessageClick = () => {
         // let text = newMessageElement.current?.value;
         // alert(text)
-        props.dispatch(sendMessageCreator())
+        props.store.dispatch(sendMessageCreator())
     }
 
     const onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let body = e.currentTarget.value
-        props.dispatch(updateNewMessageBodyCreator(body))
+        props.store.dispatch(updateNewMessageBodyCreator(body))
     }
 
     return (

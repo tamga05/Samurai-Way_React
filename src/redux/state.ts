@@ -42,11 +42,9 @@ export const newTextChangeHandlerActionCreator = (newText: string) => {
     } as const
 }
 
-
 // const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 //
 // const SEND_MESSAGE = 'SEND_MESSAGE'
-
 
 export const updateNewMessageBodyCreator = (body: string) => {
     return {
@@ -64,7 +62,7 @@ export const sendMessageCreator = () => {
 
 
 export const store: StoreType = {
-    _state: {           // Создан Стейт (state) //
+    _state: {                                                   // Создан Стейт (state) //
 
         dialogsPage: {
 
@@ -113,19 +111,19 @@ export const store: StoreType = {
         },
 
         profilePage: {
-            messageForNewPost: '',
             posts: [
                 {id: 1, post: 'Chill out is great !!!', likescount: 15},
                 {id: 2, post: 'Life is Beautiful !!!', likescount: 20},
                 // {id: 3, post: 'The sea is cool...', likescount: 18}
-            ]
+            ],
+            messageForNewPost: ''
         },
 
         sidebar: {
             friends: [
                 {id: 1, name: 'Andrey', secondName: 'Nikitin'},
-                {id: 1, name: 'Sasha', secondName: 'Ivanova'},
-                {id: 1, name: 'Sveta', secondName: 'Petrova'}
+                {id: 2, name: 'Sasha', secondName: 'Ivanova'},
+                {id: 3, name: 'Sveta', secondName: 'Petrova'}
             ]
         }
     },
@@ -138,7 +136,7 @@ export const store: StoreType = {
     subscribe(observer) {
         this._renderTree = observer;
     },
-    dispatch(action) {                                             // dispatch
+    dispatch(action) {                                                      // dispatch
         if (action.type === 'ADD-POST') {
             const newPost: PostType = {
                 id: new Date().getTime(),
