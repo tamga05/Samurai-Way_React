@@ -12,7 +12,7 @@ const Friends = (props: FriendsType) => {
 
     let friendsElements = props.state.sidebar.friends.map((el) => {
         return (
-            <div>{el.name} {el.secondName}</div>
+            <div>{el.id}) {el.name} {el.secondName}</div>
         );
     });
 

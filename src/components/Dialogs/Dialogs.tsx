@@ -2,12 +2,11 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import DialogMessage from './DialogMessage/DialogMessage';
-import {ActionsType, StoreType} from '../../redux/state';
+import {StoreType} from '../../redux/state';
 
 
 type DialogsType = {
     store: StoreType
-    dispatch: (action: ActionsType) => void
 }
 
 
@@ -21,7 +20,7 @@ const Dialogs = (props: DialogsType) => {
 
     let messagesElements = props.store._state.dialogsPage.messages.map((el) => {
         return (
-            <DialogMessage store={props.store} dispatch={props.dispatch} message={el.message}/>
+            <DialogMessage store={props.store} message={el.message}/>
         );
     });
 
